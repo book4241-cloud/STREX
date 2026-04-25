@@ -276,26 +276,36 @@
       .rtab { padding: 11px 10px; font-size: 12.5px; }
       .rtab-cities { font-size: 10px; }
 
-      .thi-impact-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-      .thi-impact-table { font-size: 11.5px; min-width: 480px; }
-      .thi-impact-table th { padding: 7px 10px; font-size: 9.5px; }
-      .thi-impact-table td { padding: 8px 10px; }
-
-      .season-row { grid-template-columns: 1fr; }
-      .cards2 { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 430px) {
-      .hero-title { font-size: 20px; }
-      .grid12 { grid-template-columns: repeat(6, 1fr); gap: 4px; }
-      .mc { padding: 8px 2px 7px; }
-      .mc-name { font-size: 10px; margin-bottom: 3px; }
+      /* calendar: single horizontal scrollable row */
+      .cal-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 18px; }
+      .grid12 { display: flex; flex-wrap: nowrap; gap: 5px; width: max-content; margin-bottom: 0; }
+      .mc { width: 64px; flex-shrink: 0; padding: 10px 4px 9px; }
+      .mc-name { font-size: 10px; }
       .mc-thi { font-size: 16px; }
       .mc-zone { font-size: 7.5px; }
       .strex-pin { font-size: 7.5px; padding: 1px 5px; top: -8px; }
       #calLabel { font-size: 13px; }
       .legend { gap: 10px; padding: 10px 12px; }
       .leg { font-size: 11px; }
+
+      /* table: hide State col, no horizontal overflow */
+      .thi-impact-wrap { overflow-x: visible; }
+      .thi-impact-table { min-width: 0; font-size: 11px; }
+      .thi-impact-table .col-state { display: none; }
+      .thi-impact-table .step-cell { white-space: normal; }
+      .thi-impact-table .thi-range { white-space: normal; }
+      .thi-impact-table th, .thi-impact-table td { padding: 7px 8px; }
+
+      /* season + summary side by side */
+      .season-summary-layout { display: flex; gap: 8px; align-items: flex-start; }
+      .season-summary-layout .season-row { flex: 1; grid-template-columns: 1fr; margin-bottom: 0; }
+      .season-summary-layout .cards2 { flex: 1; grid-template-columns: 1fr; margin-bottom: 0; }
+    }
+
+    @media (max-width: 430px) {
+      .hero-title { font-size: 20px; }
+      .mc { width: 58px; }
+      .mc-thi { font-size: 15px; }
     }
   </style>
 </head>
@@ -356,7 +366,7 @@
       </div>
 
       <div id="calLabel">Monthly average THI — Northwest Region</div>
-      <div class="grid12" id="calGrid"></div>
+      <div class="cal-scroll"><div class="grid12" id="calGrid"></div></div>
 
       <div class="legend">
         <div class="leg"><div class="dot" style="background:#639922;"></div> No stress (&lt;72)</div>
@@ -372,7 +382,7 @@
           <thead>
             <tr>
               <th>Level</th>
-              <th>State</th>
+              <th class="col-state">State</th>
               <th>THI</th>
               <th>Impact on poultry</th>
             </tr>
@@ -380,43 +390,44 @@
           <tbody>
             <tr class="row-emergency">
               <td class="step-cell">Emergency</td>
-              <td>Very Severe / Dead</td>
+              <td class="col-state">Very Severe / Dead</td>
               <td class="thi-range">≥ 91</td>
               <td>Risk of mortality, severe panting, dehydration</td>
             </tr>
             <tr class="row-danger">
               <td class="step-cell">Danger</td>
-              <td>Severe Stress</td>
+              <td class="col-state">Severe Stress</td>
               <td class="thi-range">≥ 80</td>
-              <td><strong>Broilers:</strong> Feed intake ↓31%, body weight gain ↓53%, panting &nbsp;·&nbsp; <strong>Layers:</strong> Feed intake ↓21%, egg production ↓11%</td>
+              <td><strong>Broilers:</strong> Feed intake ↓31%, BWG ↓53%, panting &nbsp;·&nbsp; <strong>Layers:</strong> Feed intake ↓21%, egg production ↓11%</td>
             </tr>
             <tr class="row-warning">
               <td class="step-cell">Warning</td>
-              <td>Moderate Stress</td>
+              <td class="col-state">Moderate Stress</td>
               <td class="thi-range">≥ 73</td>
-              <td><strong>Broilers:</strong> Feed intake ↓29%, body weight gain ↓22%</td>
+              <td><strong>Broilers:</strong> Feed intake ↓29%, BWG ↓22%</td>
             </tr>
             <tr class="row-caution">
               <td class="step-cell">Caution</td>
-              <td>Mild Stress</td>
+              <td class="col-state">Mild Stress</td>
               <td class="thi-range">≥ 63</td>
-              <td>Normal activity — monitor closely as temperatures rise</td>
+              <td>Normal activity — monitor as temperatures rise</td>
             </tr>
           </tbody>
         </table>
         <div class="thi-impact-caption">(Islam et al., 2023; Armstrong, 1994)</div>
       </div>
 
-      <div class="season-row" id="seasonRow"></div>
-
-      <div class="cards2">
-        <div class="icard">
-          <div class="icard-title">Annual summary</div>
-          <div id="summaryRows"></div>
-        </div>
-        <div class="icard">
-          <div class="icard-title">STREX window</div>
-          <div id="strexRows"></div>
+      <div class="season-summary-layout">
+        <div class="season-row" id="seasonRow"></div>
+        <div class="cards2">
+          <div class="icard">
+            <div class="icard-title">Annual summary</div>
+            <div id="summaryRows"></div>
+          </div>
+          <div class="icard">
+            <div class="icard-title">STREX window</div>
+            <div id="strexRows"></div>
+          </div>
         </div>
       </div>
 
