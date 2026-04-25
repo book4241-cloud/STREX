@@ -103,6 +103,121 @@
     .banner-body { font-size: 13px; color: var(--color-text-secondary); line-height: 1.7; }
     .source-note { font-size: 11px; color: var(--color-text-tertiary); margin-top: 14px; line-height: 1.6; }
 
+    /* ── hero ── */
+    .hero {
+      padding: 2rem 0 1.75rem;
+      border-bottom: 1px solid var(--color-border-tertiary);
+      margin-bottom: 1.75rem;
+    }
+    .hero-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #D85A30;
+      margin-bottom: 0.6rem;
+    }
+    .hero-title {
+      font-size: 27px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.18;
+      color: var(--color-text-primary);
+      border-left: 4px solid #D85A30;
+      padding-left: 14px;
+      margin-bottom: 1rem;
+    }
+    .hero-body {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      line-height: 1.75;
+      max-width: 580px;
+      padding-left: 18px;
+    }
+
+    /* ── thi explainer ── */
+    .thi-explainer {
+      background: #E6F1FB55;
+      border: 1px solid #378ADD55;
+      border-radius: var(--border-radius-md);
+      padding: 18px 20px;
+      margin-bottom: 1.75rem;
+    }
+    .thi-explainer-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #185FA5;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+    .thi-explainer p {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      line-height: 1.75;
+      margin-bottom: 6px;
+    }
+    .thi-explainer p:last-child { margin-bottom: 0; }
+
+    /* ── thi impact table ── */
+    .thi-impact-wrap {
+      margin-bottom: 1.5rem;
+    }
+    .thi-impact-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      color: var(--color-text-tertiary);
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .thi-impact-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12.5px;
+      border-radius: var(--border-radius-md);
+      overflow: hidden;
+      border: 1px solid var(--color-border-tertiary);
+    }
+    .thi-impact-table th {
+      background: var(--color-background-secondary);
+      color: var(--color-text-secondary);
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 8px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--color-border-tertiary);
+    }
+    .thi-impact-table td {
+      padding: 9px 12px;
+      vertical-align: top;
+      border-bottom: 1px solid var(--color-border-tertiary);
+    }
+    .thi-impact-table tr:last-child td { border-bottom: none; }
+    .thi-impact-table .step-cell {
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .thi-impact-table .thi-range {
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .row-emergency { background: #FCEBEB; }
+    .row-danger    { background: #FAECE7; border-left: 3px solid #D85A30; }
+    .row-warning   { background: #FAEEDA; border-left: 3px solid #EF9F27; }
+    .row-caution   { background: #EAF3DE; }
+    .row-emergency .step-cell { color: #A32D2D; }
+    .row-danger    .step-cell { color: #993C1D; }
+    .row-warning   .step-cell { color: #854F0B; }
+    .row-caution   .step-cell { color: #3B6D11; }
+    .thi-impact-caption {
+      font-size: 10.5px;
+      color: var(--color-text-tertiary);
+      margin-top: 6px;
+      text-align: right;
+    }
+
     /* ── map + region selector layout ── */
     .region-selector {
       display: flex;
@@ -148,6 +263,21 @@
   <main>
     <div class="wrap">
 
+      <div class="hero">
+        <div class="hero-eyebrow">Heat Crisis · Bangladesh Poultry</div>
+        <div class="hero-title">Bangladesh's Farms Are Cooking.<br>And the Chickens Can't Sweat.</div>
+        <div class="hero-body">
+          Across Bangladesh, rising temperatures and relentless humidity merge into a single invisible force — the Temperature-Humidity Index. When THI crosses 73, broiler farms are already losing 29% of feed intake and 22% of body weight gain. When it hits 80, over half of growth disappears. Most farmers never see it coming.
+        </div>
+      </div>
+
+      <div class="thi-explainer">
+        <div class="thi-explainer-title">What is THI — and why should every poultry farmer know it?</div>
+        <p><strong>THI stands for Temperature-Humidity Index.</strong> It's a single number that combines air temperature and humidity to measure how stressful the environment really feels — not just for humans, but for animals.</p>
+        <p>Here's the key thing about chickens: <strong>they can't sweat.</strong> When they get hot, they pant — just like dogs. But when the air is both hot AND humid, panting stops working. The chicken's body can no longer cool itself down, no matter how hard it tries.</p>
+        <p>Think of THI as a "feels-like temperature" for your flock. The higher it goes, the more the chicken's body shuts down: it eats less, grows slower, and at extreme levels — it dies. In Bangladesh, THI regularly exceeds 80 from June through September across all regions.</p>
+      </div>
+
       <div class="region-selector">
         <div class="map-panel">
           <img src="thi-map.png" alt="Bangladesh THI Map" class="thi-map" />
@@ -184,6 +314,47 @@
         <div class="leg"><div class="dot" style="background:#D85A30;"></div> Moderate (79–88)</div>
         <div class="leg"><div class="dot" style="background:#E24B4A;"></div> Severe (89–98)</div>
         <div class="leg"><div class="dot" style="background:#185FA5;"></div> STREX recommended</div>
+      </div>
+
+      <div class="thi-impact-wrap">
+        <div class="thi-impact-label">What each THI level does to your flock</div>
+        <table class="thi-impact-table">
+          <thead>
+            <tr>
+              <th>Level</th>
+              <th>State</th>
+              <th>THI</th>
+              <th>Impact on poultry</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="row-emergency">
+              <td class="step-cell">Emergency</td>
+              <td>Very Severe / Dead</td>
+              <td class="thi-range">≥ 91</td>
+              <td>Risk of mortality, severe panting, dehydration</td>
+            </tr>
+            <tr class="row-danger">
+              <td class="step-cell">Danger</td>
+              <td>Severe Stress</td>
+              <td class="thi-range">≥ 80</td>
+              <td><strong>Broilers:</strong> Feed intake ↓31%, body weight gain ↓53%, panting &nbsp;·&nbsp; <strong>Layers:</strong> Feed intake ↓21%, egg production ↓11%</td>
+            </tr>
+            <tr class="row-warning">
+              <td class="step-cell">Warning</td>
+              <td>Moderate Stress</td>
+              <td class="thi-range">≥ 73</td>
+              <td><strong>Broilers:</strong> Feed intake ↓29%, body weight gain ↓22%</td>
+            </tr>
+            <tr class="row-caution">
+              <td class="step-cell">Caution</td>
+              <td>Mild Stress</td>
+              <td class="thi-range">≥ 63</td>
+              <td>Normal activity — monitor closely as temperatures rise</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="thi-impact-caption">(Islam et al., 2023; Armstrong, 1994)</div>
       </div>
 
       <div class="season-row" id="seasonRow"></div>
