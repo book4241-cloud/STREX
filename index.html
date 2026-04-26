@@ -203,7 +203,7 @@
       font-size: 38px;
       font-weight: 900;
       line-height: 1;
-      color: var(--heat);
+      color: #E06820;
       letter-spacing: -1px;
       flex-shrink: 0;
     }
@@ -224,13 +224,14 @@
       font-weight: 500;
       color: var(--color-text-secondary);
       line-height: 1.7;
-      padding: 14px 18px;
+      padding: 16px 22px;
       border: 1px solid var(--color-border-tertiary);
-      border-left: 4px solid #185FA5;
+      border-top: 4px solid #185FA5;
       border-radius: var(--border-radius-md);
       background: #ffffff;
       margin-bottom: 1.5rem;
       font-style: italic;
+      text-align: center;
     }
 
     /* ── thi explainer ── */
@@ -245,20 +246,20 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 18px;
+      padding: 12px 16px;
       cursor: pointer;
       list-style: none;
       user-select: none;
     }
     .thi-explainer summary::-webkit-details-marker { display: none; }
     .thi-explainer-title {
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 700;
       color: #185FA5;
       letter-spacing: -0.01em;
     }
     .thi-explainer-arrow {
-      font-size: 13px;
+      font-size: 14px;
       color: #185FA5;
       transition: transform 0.22s ease;
       line-height: 1;
@@ -337,6 +338,17 @@
       margin-top: 6px;
       text-align: right;
     }
+    .impact-group { display: flex; flex-direction: column; gap: 6px; }
+    .impact-item {}
+    .impact-bird {
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin-bottom: 2px;
+    }
+    .impact-item + .impact-item { padding-top: 6px; border-top: 1px solid rgba(0,0,0,0.07); }
 
     /* ── map + region selector layout ── */
     .region-selector {
@@ -455,7 +467,7 @@
 
       <div class="hero">
         <div class="hero-eyebrow">Heat Crisis · Bangladesh Poultry</div>
-        <div class="hero-title">Bangladesh's Farms Are <em>Cooking.</em><br>And the Chickens Can't Sweat.</div>
+        <div class="hero-title">Bangladesh's Farms Are <em>Cooking,</em><br>The Chickens Can't Sweat.</div>
         <div class="hero-body">
           Heat + Humidity = THI. When it crosses 73, broilers lose 29% of feed intake. At 80, body weight gain drops 53%. In Bangladesh, this happens every summer — silently, across every region.
         </div>
@@ -547,7 +559,18 @@
               <td class="step-cell">Danger</td>
               <td class="col-state">Severe Stress</td>
               <td class="thi-range">≥ 80</td>
-              <td><strong>Broilers:</strong> Feed intake ↓31%, BWG ↓53%, panting &nbsp;·&nbsp; <strong>Layers:</strong> Feed intake ↓21%, egg production ↓11%</td>
+              <td>
+                <div class="impact-group">
+                  <div class="impact-item">
+                    <div class="impact-bird">Broilers</div>
+                    Feed intake ↓31%, BWG ↓53%, panting
+                  </div>
+                  <div class="impact-item">
+                    <div class="impact-bird">Layers</div>
+                    Feed intake ↓21%, egg production ↓11%
+                  </div>
+                </div>
+              </td>
             </tr>
             <tr class="row-warning">
               <td class="step-cell">Warning</td>
