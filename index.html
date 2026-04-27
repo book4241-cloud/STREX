@@ -155,9 +155,6 @@
     .banner-title { font-size: 13px; font-weight: 600; color: #185FA5; margin-bottom: 7px; letter-spacing: -0.01em; }
     .banner-body { font-size: 13px; color: var(--color-text-secondary); line-height: 1.7; }
     .source-note { font-size: 11px; color: var(--color-text-tertiary); margin-top: 14px; line-height: 1.6; }
-    .view-counter { display: flex; align-items: center; gap: 6px; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--color-border-tertiary); font-size: 11px; color: var(--color-text-tertiary); }
-    .view-counter-dot { width: 6px; height: 6px; border-radius: 50%; background: #4CAF50; flex-shrink: 0; }
-    .view-counter-num { font-weight: 600; color: var(--color-text-secondary); }
 
     /* ── hero headline ── */
     .hero {
@@ -508,6 +505,55 @@
       .banner-body { font-size: 12px; line-height: 1.65; }
       .source-note { font-size: 10px; margin-top: 12px; }
     }
+
+    /* ── pathway footer ── */
+    .pathway-footer {
+      border-top: 3px solid #185FA5;
+      background: #ffffff;
+      margin-top: 2.5rem;
+      padding: 20px 0 28px;
+    }
+    .pathway-footer-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 1.75rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .pf-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+    .pf-logo { height: 44px; width: auto; display: block; }
+    .pf-tagline {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a2e42;
+      line-height: 1.4;
+    }
+    .pf-website {
+      font-size: 11px;
+      color: #6b8299;
+      margin-top: 3px;
+    }
+    .pf-right {
+      text-align: right;
+      font-size: 12px;
+      color: #4a6278;
+      line-height: 1.7;
+      flex-shrink: 0;
+    }
+    .pf-right strong { color: #1a2e42; }
+    .pf-address { font-size: 11px; color: #8fa3b4; margin-top: 4px; }
+    @media (max-width: 600px) {
+      .pathway-footer-inner { flex-direction: column; gap: 16px; }
+      .pf-right { text-align: left; }
+      .pf-logo { height: 36px; }
+    }
   </style>
 </head>
 <body>
@@ -667,23 +713,8 @@
 
       <div class="banner" id="strexBanner"></div>
       <div class="source-note">Data source: Islam et al. (2023), Annals of Bangladesh Agriculture — 27-year BMD meteorological data (1995–2022). Armstrong (1994) THI scale.</div>
-      <div class="view-counter">
-        <div class="view-counter-dot"></div>
-        <span>Page views</span>
-        <span class="view-counter-num" id="viewCount">—</span>
-      </div>
     </div>
   </main>
-
-  <script>
-    fetch('/.netlify/functions/counter?page=bangladesh')
-      .then(r => r.json())
-      .then(d => {
-        const el = document.getElementById('viewCount');
-        if (el && d.count != null) el.textContent = Number(d.count).toLocaleString();
-      })
-      .catch(() => {});
-  </script>
 
   <script>
     const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -940,6 +971,23 @@
 
     render('NW');
   </script>
+
+  <footer class="pathway-footer">
+    <div class="pathway-footer-inner">
+      <div class="pf-left">
+        <img class="pf-logo" src="pathway-logo.jpeg" alt="Pathway Intermediates">
+        <div>
+          <div class="pf-tagline">The Science of Feeding Tomorrow</div>
+          <div class="pf-website">www.pathway-intermediates.com</div>
+        </div>
+      </div>
+      <div class="pf-right">
+        <div><strong>E-mail</strong>&nbsp; <a href="mailto:Ralph.kim@pathway-intermediates.com" style="color:#185FA5;text-decoration:none;">Ralph.kim@pathway-intermediates.com</a></div>
+        <div><strong>Contact No.</strong>&nbsp; +880 1915467928</div>
+        <div class="pf-address">House No. 70/B, 5th Floor, Lake Circus, Kalabagan, Dhaka-1205, Bangladesh</div>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
